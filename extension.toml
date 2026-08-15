@@ -1,6 +1,6 @@
 id = "little-butter-icons"
-name = "小黄油 Little Butter Icons"
-description = "糖果色文件图标主题，按家族色编码，覆盖 139 种扩展名 + 61 个特殊文件名。需配合 little-butter-theme 配色使用。"
+name = "Little Butter Icons"
+description = "Candy-colored file icon theme with family-based color coding, covering 139 file extensions and 61 special filenames. Pairs with little-butter-theme."
 version = "1.0.0"
 schema_version = 1
 authors = ["lggbond <lggbondl@sina.com>"]

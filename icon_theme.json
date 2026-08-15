@@ -1,10 +1,10 @@
 {
   "$schema": "https://zed.dev/schema/icon_themes/v0.3.0.json",
-  "name": "小黄油 Little Butter Icons",
+  "name": "Little Butter Icons",
   "author": "lggbond",
   "themes": [
     {
-      "name": "小黄油 Little Butter Icons",
+      "name": "Little Butter Icons",
       "appearance": "light",
       "directory_icons": {
         "collapsed": "icons/folder.svg",

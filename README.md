@@ -1,85 +1,58 @@
-# 🧈 小黄油 Little Butter Icons — Zed 图标主题扩展
+# 🧈 Little Butter Icons — Zed Icon Theme Extension
 
-糖果色文件图标主题，按家族色编码。需配合 **[little-butter](https://github.com/ikun-Lg/LG-Theme-for-zed)** 配色扩展一起使用。
+A candy-colored file icon theme with family-based color coding, designed as the companion to the [Little Butter theme](https://github.com/ikun-Lg/little-butter-theme).
 
-本仓库是 [VS Code 版 lggbond-theme](https://github.com/ikun-Lg/LG-Theme-for-vscode) 图标集的 Zed 移植。
+This repository is the Zed port of the icon set from the [lggbond-theme for VS Code](https://github.com/ikun-Lg/LG-Theme-for-vscode).
 
-## ✨ 内容
+## ✨ Contents
 
-- **139 种文件扩展名**映射（js/ts/py/go/rs/java/c/...）
-- **61 个特殊文件名**精确匹配（README.md / Dockerfile / Makefile / .gitignore / vite.config.ts / ...）
-- **70 个 SVG 图标**，按糖果家族色分组：
+- **139 file extensions** mapped (js/ts/py/go/rs/java/c/...)
+- **61 special filenames** matched exactly (README.md / Dockerfile / Makefile / .gitignore / vite.config.ts / ...)
+- **71 SVG icons**, grouped by candy family colors:
 
-| 家族 | 颜色 | 覆盖 |
+| Family | Color | Covers |
 | --- | --- | --- |
-| 🧈 web 系列 | 暖金色 | html / vue / svelte / astro / jsx / tsx / css / scss / graphql |
-| 🍓 doc 系列 | 粉棕色 | md / txt / pdf / doc |
-| 🟣 style 系列 | 紫色 | sass / less / 配置文件 |
-| 🟢 systems 系列 | 绿色 | python / go / rust / c / swift |
-| 🔵 data 系列 | 蓝色 | json / xml / sql / csv / yaml / toml |
+| 🧈 web | Warm gold | html / vue / svelte / astro / jsx / tsx / css / scss / graphql |
+| 🍓 doc | Pink brown | md / txt / pdf / doc |
+| 🟣 style | Purple | sass / less / config files |
+| 🟢 systems | Green | python / go / rust / c / swift |
+| 🔵 data | Blue | json / xml / sql / csv / yaml / toml |
 
-## 🚀 安装
+## 🚀 Install
 
-本扩展是图标主题，**必须配合 `little-butter` 配色扩展**一起使用。两个都要装：
+This is an icon theme designed to be used together with the `little-butter-theme` color theme. Install both:
 
-```bash
-# 在 Zed 中打开命令面板 (cmd+shift+p)
-# 分别对两个目录执行 "zed: install dev extension"
-zed /Users/luoguang/Documents/git/lg-theme-zed       # 配色
-zed /Users/luoguang/Documents/git/lg-theme-zed-icons  # 图标
-```
+1. Install **Little Butter Icons** from the Zed extensions page, or use **zed: install dev extension** and select this folder.
+2. Install [little-butter-theme](https://github.com/ikun-Lg/little-butter-theme) the same way.
 
-安装后，在 settings.json 中启用：
+Then enable the icon theme in your `settings.json`:
 
 ```jsonc
 {
-  "theme": "Little Butter",                    // 或 "Little Butter Flat"
-  "file_icons": "小黄油 Little Butter Icons"
+  "theme": "Little Butter",                 // or "Little Butter Flat"
+  "file_icons": "Little Butter Icons"
 }
 ```
 
-## 📁 结构
+## 📁 Structure
 
 ```
-lg-theme-zed-icons/
-├── extension.toml      # 扩展清单 (id=little-butter-icons)
-├── icon_theme.json     # Zed 图标主题清单 (schema v0.3.0)
-├── icons/              # 70 个 SVG 图标
+little-butter-icons/
+├── extension.toml      # extension manifest (id=little-butter-icons)
+├── icon_theme.json     # Zed icon theme manifest (schema v0.3.0)
+├── icons/              # 71 SVG icons
 ├── README.md
 └── LICENSE             # MIT
 ```
 
-## 🛠️ 开发
+## 🛠️ Development
 
-修改图标后保存，Zed 会自动热重载图标主题。校验：
+Icon theme changes hot-reload automatically in Zed. Validate the manifest:
 
 ```bash
-# 校验 JSON 格式
 python3 -m json.tool icon_theme.json
-
-# 校验所有 SVG 路径引用（需 pip install jsonschema）
-python3 - <<'EOF'
-import json, os
-from jsonschema import Draft7Validator
-ROOT = '/Users/luoguang/Documents/git/lg-theme-zed-icons'
-schema = json.load(open('/tmp/zed-icon-schema.json'))
-t = json.load(open(f'{ROOT}/icon_theme.json'))
-errs = list(Draft7Validator(schema).iter_errors(t))
-print(f'schema errors: {len(errs)}')
-fx = t['themes'][0]['file_icons']
-bad = [(n, i['path']) for n, i in fx.items() if not os.path.exists(f'{ROOT}/{i["path"]}')
-print(f'missing SVG files: {len(bad)}')
-EOF
 ```
 
-## 📝 清单 (extension.toml)
-
-| 属性 | 值 |
-| --- | --- |
-| id | `little-butter-icons` |
-| version | `1.0.0` |
-| icon_themes | `["icon_theme.json"]` |
-
-## 📄 协议
+## 📄 License
 
 MIT © lggbond
