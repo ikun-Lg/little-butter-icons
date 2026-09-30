@@ -225,7 +225,7 @@
         "_folder_open": {
           "path": "icons/folder-open.svg"
         },
-        "_file": {
+        "default": {
           "path": "icons/file.svg"
         },
         "_img": {
@@ -245,9 +245,6 @@
         },
         "_data_sym": {
           "path": "icons/data_sym.svg"
-        },
-        "_web_sym": {
-          "path": "icons/web_sym.svg"
         },
         "_web_V": {
           "path": "icons/web_V.svg"
